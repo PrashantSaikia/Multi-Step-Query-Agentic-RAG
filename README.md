@@ -19,12 +19,14 @@ This project implements an advanced RAG (Retrieval-Augmented Generation) system 
 ## Components Overview
 
 ### 1. Agent Workflow
-The system uses a LangGraph-based workflow with the following steps (visualized in `graph.png`):
+The system uses a LangGraph-based workflow with the following steps:
 
 1. **analyze_query**: Uses LLM to analyze the user's question and identify tariff-related terms
 2. **retrieve_context**: Retrieves relevant context from the vector store
 3. **check_for_tables**: Identifies and retrieves additional context from related tables
 4. **generate_response**: Generates the final response using all gathered context
+
+![Agent Workflow](graph.png)
 
 ### 2. Vector Store (vector_store.py)
 - Manages the FAISS vector store for semantic search
