@@ -108,17 +108,29 @@ uv run python main.py --question "What are the current anchorage dues rates?"
 ## How It Works
 
 1. **Document Ingestion**:
-   - Documents are chunked and processed
-   - Each chunk is embedded using Azure OpenAI
+   - Documents are chunked and processed with markdown-based splitting
+   - Each chunk is embedded using Azure OpenAI embeddings
    - Embeddings are stored in a FAISS vector store
+   - Special handling for headers and document structure
 
-2. **Query Processing**:
+2. **Vector Store Search**:
+   - The search process is multi-step:
+     1. First, the LLM analyzes the query to identify tariff-related terms
+     2. Then it constructs an optimized search query
+     3. The query is embedded using Azure OpenAI embeddings
+     4. FAISS performs similarity search to find the top 3 most relevant chunks
+   - After retrieving the initial context:
+     1. The system checks for table references in the retrieved chunks
+     2. If tables are referenced, it fetches additional context about those tables
+     3. All context is combined for the final response generation
+
+3. **Query Processing**:
    - User query is analyzed for tariff-related terms
    - Relevant context is retrieved from the vector store
    - Table references are identified and additional context is gathered
    - Final response is generated using all available context
 
-3. **Table Handling**:
+4. **Table Handling**:
    - System identifies references to tables in the text
    - Related table content is retrieved and added to the context
    - Ensures comprehensive responses including tabular data
