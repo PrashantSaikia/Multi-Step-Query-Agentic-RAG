@@ -1,3 +1,6 @@
+# Environment variables
+.env
+
 # Python
 __pycache__/
 *.py[cod]
@@ -21,10 +24,8 @@ wheels/
 *.egg
 
 # Virtual Environment
-.env
-.venv
-env/
 venv/
+env/
 ENV/
 
 # IDE
@@ -46,4 +47,7 @@ Thumbs.db
 temp_context.txt
 vector_store/
 *.faiss
-*.pkl 
+*.pkl
+
+# FAISS index files
+*.index 
