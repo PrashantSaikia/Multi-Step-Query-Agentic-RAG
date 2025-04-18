@@ -69,13 +69,30 @@ AZURE_OPENAI_CHAT_DEPLOYMENT=your_chat_model
 
 ## Usage
 
-1. **Ingest Documents**:
+1. **Setup Virtual Environment**:
+```bash
+# Create a new virtual environment
+uv venv .venv
+
+# Activate the virtual environment
+# On Unix/macOS:
+source .venv/bin/activate
+# On Windows:
+.venv\Scripts\activate
+```
+
+2. **Install Dependencies**:
+```bash
+uv pip install -r requirements.txt
+```
+
+3. **Ingest Documents**:
 First, ingest your documents to create the vector store:
 ```bash
 uv run python ingest_docs.py
 ```
 
-2. **Run the Application**:
+4. **Run the Application**:
 There are two ways to run the application:
 
 a. Interactive Mode:
