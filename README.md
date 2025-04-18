@@ -130,4 +130,4 @@ uv run python main.py --question "What are the current anchorage dues rates?"
 2. Better query refinement strategies
 3. Improved context relevance scoring
 4. Support for more document formats
-5. Integration with additional data sources 
+5. Integration with additional data sources
